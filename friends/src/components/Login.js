@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Login(props) {
   const [details, setDetails] = useState({ username: "", password: "" });
@@ -30,25 +31,28 @@ export default function Login(props) {
   }
 
   return (
-    <form onSubmit={event => handleSubmit(event)}>
-      <label>
-        Username:
-        <input
-          name="username"
-          value={details.username}
-          onChange={event => handleChanges(event)}
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          name="password"
-          type="password"
-          value={details.password}
-          onChange={event => handleChanges(event)}
-        />
-      </label>
-      <input type="submit" />
-    </form>
+    <div>
+      <form onSubmit={event => handleSubmit(event)}>
+        <label>
+          Username:
+          <input
+            name="username"
+            value={details.username}
+            onChange={event => handleChanges(event)}
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            name="password"
+            type="password"
+            value={details.password}
+            onChange={event => handleChanges(event)}
+          />
+        </label>
+        <input type="submit" />
+      </form>
+      <Link to="/friends">Friends</Link>
+    </div>
   );
 }
