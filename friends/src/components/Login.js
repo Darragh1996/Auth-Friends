@@ -30,6 +30,8 @@ export default function Login(props) {
     setDetails({ username: "", password: "" });
   }
 
+  console.log(props);
+
   return (
     <div>
       <form onSubmit={event => handleSubmit(event)}>
@@ -53,6 +55,13 @@ export default function Login(props) {
         <input type="submit" />
       </form>
       <Link to="/friends">Friends</Link>
+      <button
+        onClick={() => {
+          props.history.push("/add-friend");
+        }}
+      >
+        Add Friend
+      </button>
     </div>
   );
 }
