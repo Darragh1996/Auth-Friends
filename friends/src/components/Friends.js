@@ -3,6 +3,7 @@ import axiosWithAuth from "../axios/helper";
 
 export default function(props) {
   const [friends, setFriends] = useState([]);
+  //   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // const token = localStorage.getItem("token");
@@ -17,7 +18,9 @@ export default function(props) {
       });
   }, []);
 
-  return (
+  return friends.length === 0 ? (
+    <h2>...Loading</h2>
+  ) : (
     <div>
       <h1>Friends</h1>
       {friends.map(friend => {
